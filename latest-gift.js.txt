@@ -1,0 +1,12 @@
+let latestGift = { donor: "Anon", gift: "Mawar" };
+
+export default (req, res) => {
+  if (req.method === 'GET') {
+    res.status(200).json(latestGift);
+  } else if (req.method === 'POST') {
+    latestGift = req.body;
+    res.status(200).json({ message: 'Gift updated', latestGift });
+  } else {
+    res.status(405).end();
+  }
+};
